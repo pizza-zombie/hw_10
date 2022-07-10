@@ -17,6 +17,7 @@ def get_all(candidates):
         candidate_list += f"{candidate['skills']}\n\n\n"
     return candidate_list
 
+
 def get_by_pk(pk):
     """Вернет нам кандидата по pk"""
     candidate_pk = ''
@@ -27,7 +28,9 @@ def get_by_pk(pk):
             candidate_pk += f"{candidate['skills']}\n"
     return candidate_pk
 
+
 def get_by_skill(skill_name):
+    """Вернет нам кандидатов по навыку"""
     candidate_list = ''
     for candidate in candidates:
         if skill_name in candidate['skills']:
@@ -36,9 +39,7 @@ def get_by_skill(skill_name):
             candidate_list += f"{candidate['skills']}\n\n\n"
     return candidate_list
 
+
+#Читаем файл с JSON
 with open('candidates.json', 'r', encoding='utf-8') as f:
     candidates = load_candidate(f)
-
-#print(get_all(candidates))
-#print(f'<pre>\n{get_by_pk(int(input("Введите pk: ")))}\n</pre>')
-#get_by_skill(input("Введите навык: "))
